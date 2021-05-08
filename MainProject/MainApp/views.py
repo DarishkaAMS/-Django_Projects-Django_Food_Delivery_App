@@ -6,3 +6,13 @@ from django.http import HttpResponse
 def home_page_view(request):
     # return render(request, 'MainProject/MainApp/static/MainApp/home.html')
     return render(request, 'MainApp/index.html')
+
+
+def login_page_view(request):
+    # return render(request, 'MainProject/MainApp/static/MainApp/home.html')
+    return render(request, 'MainApp/login.html')
+
+
+def register_page_view(request):
+    # return render(request, 'MainProject/MainApp/static/MainApp/home.html')
+    return render(request, 'MainApp/register.html')

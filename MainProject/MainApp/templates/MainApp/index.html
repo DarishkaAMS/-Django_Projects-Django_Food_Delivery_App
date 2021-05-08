@@ -40,11 +40,9 @@
 								<li><a href="{% url 'single-project-2' %}" class="animsition-link">single project 2</a></li>
 							</ul>
 						</li>
-						<li><a href="#">blog</a>
-							<ul class="second-level">
-								<li><a href="blog-1" class="animsition-link">posts list</a></li>
-								<li><a href="single-post" class="animsition-link">single post</a></li>
-							</ul>
+						<li><a href="{% url 'login' %}">login</a>
+						</li>
+						<li><a href="{% url 'register' %}">register</a>
 						</li>
 						<li><a href="{% url 'contact' %}" class="animsition-link">contact us</a></li>
 					</ul>
@@ -397,7 +395,8 @@
 							<li><a href="{% url 'about' %}" class="animsition-link link">about us</a></li>
 							<li><a href="{% url 'services' %}" class="animsition-link link">services</a></li>
 							<li><a href="{% url 'portfolio-1' %}" class="animsition-link link">portfolio</a></li>
-							<li><a href="{% url 'blog-1' %}" class="animsition-link link">blog</a></li>
+							<li><a href="{% url 'login' %}" class="animsition-link link">login</a></li>
+							<li><a href="{% url 'register' %}" class="animsition-link link">Register</a></li>
 							<li><a href="{% url 'contact' %}" class="animsition-link link">contact us</a></li>
 						</ul>
 					</nav>
