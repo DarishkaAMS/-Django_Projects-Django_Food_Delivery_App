@@ -4,8 +4,8 @@ from django.http import HttpResponse
 
 
 def home_page_view(request):
-    # return render(request, 'MainProject/MainApp/static/MainApp/home.html')
-    return render(request, 'MainApp/index.html')
+    template = 'MainApp/index.html'
+    return render(request, template)
 
 
 def login_page_view(request):
