@@ -19,6 +19,18 @@ class MyAccountManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
+    def create_superuser(self, email, username, password):
+        user = self.create_user(
+            email=self.normalize_email(email),
+            username=username,
+            password=password
+        )
+        user.is_admin = True
+        user.is_stuff = True
+        user.is_superuser = True
+        user.save(using=self._db)
+        return user
+
 
 def get_profile_image_filepath(self):
     return f'profile_images/{self.username}/{"profile_image.png"}'
@@ -40,6 +52,8 @@ class Account(AbstractBaseUser):
     profile_image = models.ImageField(max_length=255, upload_to=get_profile_image_filepath, null=True, blank=True)
     # profile_image = models.ImageField(max_length=255, upload_to=get_profile_image_filepath, null=True, blank=True, default=)
     hide_email = models.BooleanField(default=True)
+
+    objects = MyAccountManager()
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['email']
