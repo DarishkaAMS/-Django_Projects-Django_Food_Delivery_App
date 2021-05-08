@@ -4,8 +4,20 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 # Create your models here.
 
 
+class MyAccountManager(BaseUserManager):
 
-
+    def create_user(self, email, username, password=None):
+        if not username:
+            raise ValueError("All guests must have an username")
+        if not email:
+            raise ValueError("All guests must have an email address")
+        user = self.model(
+            email=self.normalize_email(email),
+            username=username,
+        )
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
 
 
 def get_profile_image_filepath(self):
