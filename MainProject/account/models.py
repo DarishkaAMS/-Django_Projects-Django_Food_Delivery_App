@@ -26,7 +26,7 @@ class MyAccountManager(BaseUserManager):
             password=password
         )
         user.is_admin = True
-        user.is_stuff = True
+        user.is_staff = True
         user.is_superuser = True
         user.save(using=self._db)
         return user
@@ -56,7 +56,7 @@ class Account(AbstractBaseUser):
     objects = MyAccountManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['email']
+    REQUIRED_FIELDS = ['username']
 
     def __str__(self):
         return f'This is {self.username}'
@@ -69,3 +69,6 @@ class Account(AbstractBaseUser):
 
     def get_profile_image_filename(self):
         return str(self.profile_image)[str(self.profile_image).index(f'profile_images/{self.username}/'):]
+
+    def get_username(self):
+        return self.email
