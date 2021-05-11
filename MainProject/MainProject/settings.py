@@ -144,7 +144,7 @@ USE_TZ = True
 # STATIC_URL = '/static/'
 # STATIC_ROOT = os.path.join(BASE_BIR, 'static_cdn')
 
-# MEDIA_URL = '/media'
+# MEDIA_URL = '/media/'
 # MEDIA_ROOT = os.path.join(BASE_BIR, 'media_cdn')
 
 # TEMP = os.path.join(BASE_DIR, 'media_cdn/temp')
