@@ -147,3 +147,5 @@ USE_TZ = True
 # MEDIA_URL = '/media'
 # MEDIA_ROOT = os.path.join(BASE_BIR, 'media_cdn')
 
+# TEMP = os.path.join(BASE_DIR, 'media_cdn/temp')
+
