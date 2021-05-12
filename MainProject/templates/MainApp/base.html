@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DarishkaAMS Agency Service</title>
+	<!-- META TAGS -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" type="image/x-icon" href="{% static 'MainApp/img/favicon.png' %}">
+<!--	<meta name="author" content="Amine Akhouad">-->
+<!--	<meta name="description" content="AKAD is a creative and modern template for digital agencies">-->
+
+	<!-- STYLES -->
+	<link rel="stylesheet" href="{% static 'MainApp/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'MainApp/css/ionicons.min.css' %}">
+	<link rel="stylesheet" href="{% static 'MainApp/css/flexslider.css' %}">
+	<link rel="stylesheet" href="{% static 'MainApp/css/animsition.min.css' %}">
+	<link rel="stylesheet" href="{% static 'MainApp/css/animate.css' %}">
+	<link rel="stylesheet" href="{% static 'MainApp/css/style.css' %}">
+</head>
+<body class="animsition">
+	<!-- HEADER  -->
+	<header class="main-header">
+		<div class="container">
+			<div class="logo">
+				Welcome {{ user.username }}
+<!--				<a href="{% url 'index' %}"><img src="{% static 'MainApp/img/darishkaams_nametag.png' %}" alt="logo" width="10" height="10" ></a>-->
+			</div>
+			<div class="menu">
+				<!-- desktop navbar -->
+				<nav class="desktop-nav">
+					<ul class="first-level">
+						<li><a href="{% url 'index' %}" class="animsition-link">Home</a></li>
+						<li><a href="{% url 'about' %}" class="animsition-link">about us</a></li>
+						<li><a href="{% url 'services' %}" class="animsition-link">services</a></li>
+						<li><a href="#">portfolio</a>
+							<ul class="second-level">
+								<li><a href="{% url 'portfolio-1' %}" class="animsition-link">portfolio list</a></li>
+								<li><a href="{% url 'single-project' %}" class="animsition-link">single project 1</a></li>
+								<li><a href="{% url 'single-project-2' %}" class="animsition-link">single project 2</a></li>
+							</ul>
+						</li>
+						<li><a href="{% url 'login' %}">login</a>
+						</li>
+						<li><a href="{% url 'register' %}">register</a>
+						</li>
+						<li><a href="{% url 'contact' %}" class="animsition-link">contact us</a></li>
+					</ul>
+				</nav>
+				<!-- mobile navbar -->
+				<nav class="mobile-nav"></nav>
+				<div class="menu-icon">
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+				</div>
+			</div>
+		</div>
+	</header>
+	{% block content %}
+		Replace this content
+	{% endblock %}
+	<!-- FOOTER -->
+	<footer class="main-footer wow fadeInUp">
+		<div class="container">
+			<div class="col-md-8 col-sm-12">
+				<div class="row">
+					<nav class="footer-nav">
+						<ul>
+							<li><a href="{% url 'index' %}" class="animsition-link link">Home</a></li>
+							<li><a href="{% url 'about' %}" class="animsition-link link">about us</a></li>
+							<li><a href="{% url 'services' %}" class="animsition-link link">services</a></li>
+							<li><a href="{% url 'portfolio-1' %}" class="animsition-link link">portfolio</a></li>
+							<li><a href="{% url 'login' %}" class="animsition-link link">login</a></li>
+							<li><a href="{% url 'register' %}" class="animsition-link link">Register</a></li>
+							<li><a href="{% url 'contact' %}" class="animsition-link link">contact us</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+
+			<div class="col-md-4 col-sm-12" style="text-align:right">
+				<div class="row">
+					<div class="uppercase gray-text">
+						created by DarishkaAMS and Akhouad
+					</div>
+					<ul class="social-icons" style="margin-top:30px;float:right">
+						<li><a href="#"><i class="icon ion-social-facebook"></i></a></li>
+						<li><a href="#"><i class="icon ion-social-twitter"></i></a></li>
+						<li><a href="#"><i class="icon ion-social-youtube"></i></a></li>
+						<li><a href="#"><i class="icon ion-social-linkedin"></i></a></li>
+						<li><a href="#"><i class="icon ion-social-pinterest"></i></a></li>
+						<li><a href="#"><i class="icon ion-social-instagram"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- SCRIPTS -->
+	<script type="text/javascript" src="{% static 'MainApp/js/jquery-2.1.4.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'MainApp/js/isotope.pkgd.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'MainApp/js/jquery.flexslider.js' %}"></script>
+	<script type="text/javascript" src="{% static 'MainApp/js/smoothScroll.js' %}"></script>
+	<script type="text/javascript" src="{% static 'MainApp/js/jquery.animsition.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'MainApp/js/wow.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'MainApp/js/main.js' %}"></script>
+
+	<script type="text/javascript" charset="utf-8">
+		$(window).load(function() {
+			new WOW().init();
+
+			// initialise flexslider
+			$('.site-hero').flexslider({
+				animation: "fade",
+				directionNav: false,
+				controlNav: false,
+				keyboardNav: true,
+				slideToStart: 0,
+				animationLoop: true,
+				pauseOnHover: false,
+				slideshowSpeed: 4000,
+			});
+
+
+			// initialize isotope
+			var $container = $('.portfolio_container');
+			$container.isotope({
+				filter: '*',
+			});
+
+			$('.portfolio_filter a').click(function(){
+				$('.portfolio_filter .active').removeClass('active');
+				$(this).addClass('active');
+
+				var selector = $(this).attr('data-filter');
+				$container.isotope({
+					filter: selector,
+					animationOptions: {
+						duration: 500,
+						animationEngine : "jquery"
+					}
+				});
+				return false;
+			});
+		});
+	</script>
+</body>
+</html>
