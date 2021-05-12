@@ -39,13 +39,24 @@
                         <form action="#" method="post">
                             {% csrf_token %}
                             <div class="input_1">
-                                <input type="email" name="email" class="input_1">
+                                <input type="email" name="email" class="input_1" required>
                                 <span>your email please</span>
+
+                            </div>
+							<br/>
+							<div class="input_1">
+                                <input type="text" name="username" class="input_1" required>
+                                <span>your username please</span>
 
                             </div>
                             <br/>
                             <div class="input_1">
-                                <input type="password" name="password" class="input_1">
+                                <input type="password" name="password" class="input_1" required>
+                                <span>your password please</span>
+                            </div>
+							<br/>
+							<div class="input_1">
+                                <input type="password" name="password" class="input_1" required>
                                 <span>your password please</span>
                             </div>
                             {% for field in login_form %}
@@ -60,7 +71,7 @@
                                     <p>{{ login_form.non_field_errors }}</p>
                                 </div>
                             {% endif %}
-                            <button type="submit" class="btn green" style="margin-top:20px"><span>send</span></button>
+                            <button type="submit" class="btn green" style="margin-top:20px"><span>Register</span></button>
                         </form>
 					</p>
 				</div>
