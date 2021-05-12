@@ -33,14 +33,22 @@
 			<div class="col-md-offset-1 col-md-6 col-sm-12">
 				<div class="row">
 					<div class="section-title">
-						<span>Let's start journey</span>
+						<span>Let's start our journey</span>
 					</div>
 					<p>
                         <form action="#" method="post">
+                            {% csrf_token %}
                             <div class="input_1">
-                                <input type="text" name="email">
-                                <span>your email</span>
+                                <input type="email" name="email" class="input_1">
+                                <span>your email please</span>
+
                             </div>
+                            <br/>
+                            <div class="input_1">
+                                <input type="password" name="password" class="input_1">
+                                <span>your password please</span>
+                            </div>
+
                             <button type="submit" class="btn green" style="margin-top:20px"><span>send</span></button>
                         </form>
 					</p>
