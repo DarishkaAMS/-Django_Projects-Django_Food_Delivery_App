@@ -30,6 +30,7 @@
 				<!-- desktop navbar -->
 				<nav class="desktop-nav">
 					<ul class="first-level">
+						{% if request.user.is_authenticated %}
 						<li><a href="{% url 'index' %}" class="animsition-link">Home</a></li>
 						<li><a href="{% url 'about' %}" class="animsition-link">about us</a></li>
 						<li><a href="{% url 'services' %}" class="animsition-link">services</a></li>
@@ -40,11 +41,15 @@
 								<li><a href="{% url 'single-project-2' %}" class="animsition-link">single project 2</a></li>
 							</ul>
 						</li>
+						<li><a href="{% url 'logout' %}">logout</a>
+						</li>
+						<li><a href="{% url 'contact' %}" class="animsition-link">contact us</a></li>
+						{% else %}
 						<li><a href="{% url 'login' %}">login</a>
 						</li>
 						<li><a href="{% url 'register' %}">register</a>
 						</li>
-						<li><a href="{% url 'contact' %}" class="animsition-link">contact us</a></li>
+						{% endif %}
 					</ul>
 				</nav>
 				<!-- mobile navbar -->
@@ -67,13 +72,17 @@
 				<div class="row">
 					<nav class="footer-nav">
 						<ul>
+							{% if request.user.is_authenticated %}
 							<li><a href="{% url 'index' %}" class="animsition-link link">Home</a></li>
 							<li><a href="{% url 'about' %}" class="animsition-link link">about us</a></li>
 							<li><a href="{% url 'services' %}" class="animsition-link link">services</a></li>
 							<li><a href="{% url 'portfolio-1' %}" class="animsition-link link">portfolio</a></li>
+							<li><a href="{% url 'logout' %}" class="animsition-link link">logout</a></li>
+							<li><a href="{% url 'contact' %}" class="animsition-link link">contact us</a></li>
+							{% else %}
 							<li><a href="{% url 'login' %}" class="animsition-link link">login</a></li>
 							<li><a href="{% url 'register' %}" class="animsition-link link">Register</a></li>
-							<li><a href="{% url 'contact' %}" class="animsition-link link">contact us</a></li>
+							{% endif %}
 						</ul>
 					</nav>
 				</div>
