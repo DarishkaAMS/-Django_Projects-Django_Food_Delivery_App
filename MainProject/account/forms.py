@@ -27,7 +27,7 @@ class RegistrationForm(UserCreationForm):
             account = Account.objects.get(username=username)
         except Exception as e:
             return username
-        raise forms.ValidationError(f"Email {username} is already in use.")
+        raise forms.ValidationError(f"Username {username} is already in use.")
 
 
 class AccountAuthenticationForm(forms.ModelForm):
