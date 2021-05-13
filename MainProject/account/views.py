@@ -11,11 +11,6 @@ def login_page_view(request):
     return render(request, 'account/login.html')
 
 
-# def register_page_view(request):
-#     # return render(request, 'MainProject/MainApp/static/MainApp/home.html')
-#     return render(request, 'account/register.html')
-
-
 def register_page_view(request, *args, **kwargs):
     user = request.user
     if user.is_authenticated:

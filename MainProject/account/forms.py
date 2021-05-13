@@ -18,7 +18,7 @@ class RegistrationForm(UserCreationForm):
         try:
             account = Account.objects.get(email=email)
         except Exception as e:
-            raise email
+            return email
         raise forms.ValidationError(f"Email {email} is already in use.")
 
     def clean_username(self):
@@ -26,7 +26,7 @@ class RegistrationForm(UserCreationForm):
         try:
             account = Account.objects.get(username=username)
         except Exception as e:
-            raise username
+            return username
         raise forms.ValidationError(f"Email {username} is already in use.")
 
 
