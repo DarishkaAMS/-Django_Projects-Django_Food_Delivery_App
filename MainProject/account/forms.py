@@ -36,7 +36,7 @@ class AccountAuthenticationForm(forms.ModelForm):
     class Meta:
         model = Account
         fields = ("email", "password")
-    #
+
     # def save(self):
     #     email = self.cleaned_data['email']
     #     password = self.cleaned_data['password']
