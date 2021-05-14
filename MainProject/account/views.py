@@ -27,7 +27,8 @@ def register_page_view(request, *args, **kwargs):
             raw_password = form.cleaned_data.get('password1')
             account = authenticate(email=email, password=raw_password)
             login(request, account)
-            destination = get_redirect_if_exists("next")
+            # destination = get_redirect_if_exists("next")
+            destination = kwargs.get("next")
             if destination:
                 return redirect(destination)
             return redirect("index")
