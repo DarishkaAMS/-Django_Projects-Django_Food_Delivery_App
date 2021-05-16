@@ -69,3 +69,8 @@ def get_redirect_if_exists(request):
 def logout_view(request):
     logout(request)
     return redirect("index")
+
+
+def account_page_view(request):
+    template = 'account/account_page.html'
+    return render(request, template)
