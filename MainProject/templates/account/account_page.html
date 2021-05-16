@@ -6,28 +6,22 @@
 	<div class="site-hero_2">
 		<div class="page-title">
 			<div class="big-title montserrat-text uppercase">{{ user.username }}</div>
-			<div class="small-title montserrat-text uppercase">home / portfolio / single_project</div>
+			<img src="{% static 'MainApp/img/img1.jpg' %}" />
+			<div class="small-title montserrat-text uppercase">"Creative and curious"</div>
+			<small> {{ user.email }}</small>
+			<div>
+				<button type="submit" class="btn green" style="margin-top:20px"><span>Update</span></button>
+				<a class="btn black" style="margin-top:20px" role="button" href="{% url 'password_change'%}"><span>Change Password</span></a>
+			</div>
 		</div>
 	</div>
 
 
 	<section>
 		<div class="container">
-			<div class="project_images">
-				<ul class="slides">
-					<li><img src="assets/img/work-1.jpg" /></li>
-					<li><img src="assets/img/work-1.jpg" /></li>
-					<li><img src="assets/img/work-1.jpg" /></li>
-				</ul>
-			</div>
-		</div>
-	</section>
-
-	<section>
-		<div class="container">
 			<div class="row">
 				<div class="section-title">
-					<span>project title</span>
+					<span>About Me</span>
 					<p>Latest project we have made. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 						tempor incididunt ut labore et dolore magna aliqua.</p>
 				</div>
