@@ -8,11 +8,19 @@
 			<div class="big-title montserrat-text uppercase">{{ user.username }}</div>
 			<img src="{% static 'MainApp/img/img1.jpg' %}" />
 			<div class="small-title montserrat-text uppercase">"Creative and curious"</div>
+			{% if is_self %}
 			<small> {{ user.email }}</small>
 			<div>
 				<button type="submit" class="btn green" style="margin-top:20px"><span>Update</span></button>
 				<a class="btn black" style="margin-top:20px" role="button" href="{% url 'password_change'%}"><span>Change Password</span></a>
 			</div>
+			{% else %}
+				{% if hide_email %}
+				<small> *******@***** </small>
+				{% else %}
+				<small> {{ user.email }}</small>
+				{% endif %}
+			{% endif %}
 		</div>
 	</div>
 
