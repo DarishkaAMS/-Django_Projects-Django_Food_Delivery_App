@@ -23,7 +23,22 @@
 			{% endif %}
 		</div>
 	</div>
-
+	{% if request.user.is_authenticated %}
+	<div class="d-flex flex-column mb-4">
+		{% if request_sent == 0 %}
+		<div class="card m-2 p-4">
+			<div class="d-flex flex-row align-items-center">
+				<span class="friend-text align-items-center mr-2">
+					Accept friend request
+				</span>
+				<span>
+					6:51
+				</span>
+			</div>
+			{% endif %}
+			{% endif %}
+		</div>
+	</div>
 
 	<section>
 		<div class="container">

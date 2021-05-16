@@ -30,7 +30,8 @@ DEBUG = True
 if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = 'ALLOWED_HOSTS'
+ALLOWED_HOSTS = ['ec2-13-53-43-79.eu-north-1.compute.amazonaws.com', '127.0.0.1']
 
 AUTH_USER_MODEL = 'account.Account'
 AUTHENTICATION_BACKENDS = (
