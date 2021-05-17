@@ -21,17 +21,20 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-load_dotenv()
-SECRET_KEY = 'SECRET_KEY'
+# load_dotenv()
+# SECRET_KEY = 'SECRET_KEY'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '$v(e&*+9iy@4!*p0lsh#aux#ud6v-jst2@^5c+h=uwr=c#l404')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
 if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-# ALLOWED_HOSTS = 'ALLOWED_HOSTS'
-ALLOWED_HOSTS = ['13.53.193.162', '127.0.0.1']
+load_dotenv()
+ALLOWED_HOSTS = ['127.0.0.1']
+# ALLOWED_HOSTS = ['13.53.193.162', '127.0.0.1']
 
 AUTH_USER_MODEL = 'account.Account'
 AUTHENTICATION_BACKENDS = (
@@ -55,6 +58,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -156,3 +160,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media_cdn')
 
 TEMP = os.path.join(BASE_DIR, 'media_cdn/temp')
 
+# Heroku: Update database configuration from $DATABASE_URL.
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
