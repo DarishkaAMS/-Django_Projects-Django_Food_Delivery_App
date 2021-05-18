@@ -97,8 +97,8 @@ def account_page_view(request, *args, **kwargs):
         elif not user.is_authenticated:
             is_self = False
 
-        context['is_self'] = account.is_self
-        context['is_friend'] = account.is_friend
+        context['is_self'] = is_self
+        context['is_friend'] = is_friend
         context['BASE_URL'] = settings.BASE_URL
 
     return render(request, template, context)
