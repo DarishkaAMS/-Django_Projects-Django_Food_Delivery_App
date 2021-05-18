@@ -1,8 +1,10 @@
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
+from django.conf import settings
 
 from .forms import AccountAuthenticationForm, RegistrationForm
+from .models import Account
 
 # Create your views here.
 
@@ -71,6 +73,32 @@ def logout_view(request):
     return redirect("index")
 
 
-def account_page_view(request):
+def account_page_view(request, *args, **kwargs):
     template = 'account/account_page.html'
-    return render(request, template)
+    context = {}
+    # user_name = kwargs.get("user_name")
+    user_id = kwargs.get("user_id")
+    try:
+        account = Account.objects.get(pk=user_id)
+    except Account.DoesNotExist:
+        return HttpResponse("That user doesn't exist")
+    if account:
+        context['id'] = account.id
+        context['username'] = account.username
+        context['email'] = account.email
+        context['profile_image'] = account.profile_image
+        context['hide_email'] = account.hide_email
+
+        is_self = True
+        is_friend = False
+        user = request.user
+        if user.is_authenticated and user != account:
+            is_self = False
+        elif not user.is_authenticated:
+            is_self = False
+
+        context['is_self'] = account.is_self
+        context['is_friend'] = account.is_friend
+        context['BASE_URL'] = settings.BASE_URL
+
+    return render(request, template, context)
