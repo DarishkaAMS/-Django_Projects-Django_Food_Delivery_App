@@ -45,9 +45,9 @@
 						</li>
 						<li><a href="{% url 'contact' %}" class="animsition-link">contact us</a></li>
 						{% else %}
-						<li><a href="{% url 'login' %}">login</a>
+						<li><a href="{% url 'account:login' %}">login</a>
 						</li>
-						<li><a href="{% url 'register' %}">register</a>
+						<li><a href="{% url 'account:register' %}">register</a>
 						</li>
 						{% endif %}
 					</ul>
@@ -80,8 +80,8 @@
 							<li><a href="{% url 'account:logout' %}" class="animsition-link link">logout</a></li>
 							<li><a href="{% url 'contact' %}" class="animsition-link link">contact us</a></li>
 							{% else %}
-							<li><a href="{% url 'login' %}" class="animsition-link link">login</a></li>
-							<li><a href="{% url 'register' %}" class="animsition-link link">Register</a></li>
+							<li><a href="{% url 'account:login' %}" class="animsition-link link">login</a></li>
+							<li><a href="{% url 'account:register' %}" class="animsition-link link">Register</a></li>
 							{% endif %}
 						</ul>
 					</nav>
